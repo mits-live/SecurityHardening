@@ -29,3 +29,22 @@ X-AspNetMvc-Version
     "ContentSecurityPolicy": "default-src 'none'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.some-page.com https://*.tv-page.tv https://*.tools.net ; style-src 'self' 'unsafe-inline' https://*.cloudflare.com; img-src 'self'  data: https://*.data-page.net; font-src 'self' data:; connect-src 'self' https://dc.services.visualstudio.com; media-src 'self' data: https://*.data-page.tv; frame-src 'self' https://*.tv-page.tv; frame-ancestors 'self';"
   }
 ```
+
+## How to use it in a .NET Core, .NET 5/6/7 application
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    ...
+    services.AddSecurityHardening();
+    ...
+}
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    ...
+    // Use prior (!!) the app.UseEndpoints statements!
+    app.UseSecurityHardening();
+    ...
+}
+```
