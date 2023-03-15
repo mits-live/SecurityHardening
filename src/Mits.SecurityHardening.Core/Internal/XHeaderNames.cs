@@ -32,6 +32,9 @@
         /// <summary>Gets the <c>Feature Policy</c> HTTP header name.</summary>
         public const string FeaturePolicy = "Feature-Policy";
 
+        /// <summary>Gets the <c>Permissions Policy</c> HTTP header name.</summary>
+        public const string PermissionsPolicy = "Permissions-Policy";
+
         /// <summary>Gets the <c>Content Security Policy</c> HTTP header name.</summary>
         public const string ContentSecurityPolicy = "Content-Security-Policy";
 

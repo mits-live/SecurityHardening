@@ -26,6 +26,8 @@
 
         public string FeaturePolicy { get; set; }
 
+        public string PermissionsPolicy { get; set; }
+
         public string ContentSecurityPolicy { get; set; }
 
         #endregion
