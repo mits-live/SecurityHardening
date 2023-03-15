@@ -24,6 +24,7 @@ internal static class HttpResponseSecurityHelper
         if (!string.IsNullOrEmpty(settings.ReferrerPolicy))
         {
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+            response.Headers.Remove(XHeaderNames.ReferrerPolicy);
             response.Headers.Add(XHeaderNames.ReferrerPolicy, new StringValues(settings.ReferrerPolicy));
             headersModified = true;
         }
@@ -31,6 +32,7 @@ internal static class HttpResponseSecurityHelper
         if (!string.IsNullOrEmpty(settings.ContentTypeOptions))
         {
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
+            response.Headers.Remove(XHeaderNames.XContentTypeOptions);
             response.Headers.Add(XHeaderNames.XContentTypeOptions, new StringValues(settings.ContentTypeOptions));
             headersModified = true;
         }
@@ -38,6 +40,7 @@ internal static class HttpResponseSecurityHelper
         if (!string.IsNullOrEmpty(settings.FrameOptions))
         {
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+            response.Headers.Remove(XHeaderNames.XFrameOptions);
             response.Headers.Add(XHeaderNames.XFrameOptions, new StringValues(settings.FrameOptions));
             headersModified = true;
         }
@@ -45,6 +48,7 @@ internal static class HttpResponseSecurityHelper
         if (!string.IsNullOrEmpty(settings.PermittedCrossDomainPolicies))
         {
             // https://security.stackexchange.com/questions/166024/does-the-x-permitted-cross-domain-policies-header-have-any-benefit-for-my-websit
+            response.Headers.Remove(XHeaderNames.PermittedCrossDomainPolicies);
             response.Headers.Add(XHeaderNames.PermittedCrossDomainPolicies, new StringValues(settings.PermittedCrossDomainPolicies));
             headersModified = true;
         }
@@ -52,6 +56,7 @@ internal static class HttpResponseSecurityHelper
         if (!string.IsNullOrEmpty(settings.XssProtection))
         {
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
+            response.Headers.Remove(XHeaderNames.XxssProtection);
             response.Headers.Add(XHeaderNames.XxssProtection, new StringValues(settings.XssProtection));
             headersModified = true;
         }
@@ -60,6 +65,7 @@ internal static class HttpResponseSecurityHelper
         {
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT
             // You can use https://report-uri.com/ to get notified when a misissued certificate is detected
+            response.Headers.Remove(XHeaderNames.CertificateTransparency);
             response.Headers.Add(XHeaderNames.CertificateTransparency, new StringValues(settings.CertificateTransparency));
             headersModified = true;
         }
@@ -69,7 +75,18 @@ internal static class HttpResponseSecurityHelper
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
             // https://github.com/w3c/webappsec-feature-policy/blob/master/features.md
             // https://developers.google.com/web/updates/2018/06/feature-policy
+            response.Headers.Remove(XHeaderNames.FeaturePolicy);
             response.Headers.Add(XHeaderNames.FeaturePolicy, new StringValues(settings.FeaturePolicy));
+            headersModified = true;
+        }
+
+        if (!string.IsNullOrEmpty(settings.PermissionsPolicy))
+        {
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy
+            // https://github.com/w3c/webappsec-feature-policy/blob/master/features.md
+            // https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/
+            response.Headers.Remove(XHeaderNames.PermissionsPolicy);
+            response.Headers.Add(XHeaderNames.PermissionsPolicy, new StringValues(settings.PermissionsPolicy));
             headersModified = true;
         }
 
@@ -77,6 +94,7 @@ internal static class HttpResponseSecurityHelper
         {
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+            response.Headers.Remove(XHeaderNames.ContentSecurityPolicy);
             response.Headers.Add(XHeaderNames.ContentSecurityPolicy, new StringValues(settings.ContentSecurityPolicy));
             headersModified = true;
         }

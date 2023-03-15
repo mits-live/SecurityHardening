@@ -5,13 +5,15 @@
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageId>Mits.SecurityHardening.Core</PackageId>
-        <PackageVersion>1.0.0</PackageVersion>
+        <PackageVersion>1.0.1</PackageVersion>
         <Authors>MITS Live</Authors>
         <Description>Security Hardening for Microsoft .NET Core, .NET 5/6/7 Web applications.</Description>
         <PackageProjectUrl>https://github.com/mits-live/SecurityHardening</PackageProjectUrl>
         <RepositoryUrl>https://github.com/mits-live/SecurityHardening.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>security-hardening conetent-security-policy csp</PackageTags>
+        <AssemblyVersion>1.0.1</AssemblyVersion>
+        <FileVersion>1.0.1</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
